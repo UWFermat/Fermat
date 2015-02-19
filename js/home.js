@@ -1,6 +1,6 @@
 (function() {
 
-    var width, height, largeHeader, canvas, ctx, circles, target;
+    var width, height, largeHeader, canvas, ctx, circles, target, run_animation=true, request = 0;
 
     // Main
     initHeader();
@@ -25,7 +25,7 @@
             var c = new Circle();
             circles.push(c);
         }
-        animate();
+        animate(run_animation);
     }
 
     // Event handling
@@ -41,12 +41,17 @@
         canvas.height = height;
     }
 
-    function animate() {
-        ctx.clearRect(0,0,width,height);
-        for(var i in circles) {
-            circles[i].draw();
+    function animate(run_animation) {
+        if (run_animation) {
+            ctx.clearRect(0,0,width,height);
+            for(var i in circles) {
+                circles[i].draw();
+            }
+            request = window.requestAnimationFrame(animate);
+        } else {
+            window.cancelAnimationFrame(request);
+            request = 0;
         }
-        requestAnimationFrame(animate);
     }
 
     // Canvas manipulation
@@ -79,5 +84,27 @@
             ctx.fill();
         };
     }
+
+    //When user clicks on nav toggle
+    $(".nav-toggle").click(function() {
+        //Stop the animation if modal is being opened
+        if(run_animation) {
+            run_animation=false;
+        } else {
+            //Run the animation if modal is being closed
+            run_animation=true;
+        }
+        animate(run_animation);
+        $(this).toggleClass("active");
+        $(".overlay-boxify").toggleClass("open");
+    });
+
+    //When user clicks outside
+    $(".overlay").click(function() {
+        $(".nav-toggle").toggleClass("active");
+        $(".overlay-boxify").toggleClass("open");
+        run_animation=true;
+        animate(run_animation);
+    });
 
 })();
