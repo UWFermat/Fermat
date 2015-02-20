@@ -87,6 +87,15 @@
 
     //When user clicks on nav toggle
     $(".nav-toggle").click(function() {
+        toggleAnimation();
+    });
+
+    //When user clicks outside
+    $(".overlay").click(function() {
+        startAnimation();
+    });
+
+    function toggleAnimation() {
         //Stop the animation if modal is being opened
         if(run_animation) {
             run_animation=false;
@@ -95,16 +104,18 @@
             run_animation=true;
         }
         animate(run_animation);
-        $(this).toggleClass("active");
-        $(".overlay-boxify").toggleClass("open");
-    });
+        toggleOverlay();
+    }
 
-    //When user clicks outside
-    $(".overlay").click(function() {
-        $(".nav-toggle").toggleClass("active");
-        $(".overlay-boxify").toggleClass("open");
+    function startAnimation() {
         run_animation=true;
         animate(run_animation);
-    });
+        toggleOverlay();
+    }
+
+    function toggleOverlay() {
+        $(".nav-toggle").toggleClass("active");
+        $(".overlay-boxify").toggleClass("open");
+    }
 
 })();
