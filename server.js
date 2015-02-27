@@ -1,13 +1,12 @@
 // server.js
 
 // modules =================================================
-var express        = require('express');
+var express        = require('./app/node_modules/express');
 var app            = express();
-var bodyParser     = require('body-parser');
-var methodOverride = require('method-override');
-var passport = require('passport');
-var expressSession = require('express-session');
-var mongoose = require('mongoose');
+var bodyParser     = require('./app/node_modules/body-parser');
+var methodOverride = require('./app/node_modules/method-override');
+var expressSession = require('./app/node_modules/express-session');
+var mongoose = require('./app/node_modules/mongoose');
 
 // configuration ===========================================
 // config files
@@ -35,16 +34,12 @@ app.use(express.static(__dirname + '/public'));
 
 // setting up express-session
 app.use(expressSession({secret: 'mySecretKey'}));
-app.use(passport.initialize());
-app.use(passport.session());
 
 // routes ==================================================
 require('./app/routes.js')(app); // configure our routes
 // start app ===============================================
 // startup our app at http://localhost:8080
 app.listen(port);
-
-
 
 // shoutout to the user
 console.log('Magic happens on port ' + port);
