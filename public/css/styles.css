@@ -23,6 +23,7 @@ body {
     height:100%;
     font-family: 'Nunito', sans-serif;
 }
+@font
 
 /*
 * Font Smoothing
@@ -97,7 +98,7 @@ Navigation
     position: absolute;
     top: 0;
     right: 15px;
-    z-index: 999999;
+    z-index: 2;
     padding: 10px 35px 16px 0px;
     cursor: pointer;
 }
@@ -157,18 +158,18 @@ Navigation
 /* ==========================================================================
 Hero
 ========================================================================== */
-.hero {
+#home_page {
     position: relative;
     background: rgb(40, 70, 102) url('../img/hero-01.jpg') no-repeat center center;
     background-size: cover;
     color: #fff;
 }
-.hero h1 {
-    margin: 200px 0 45px 0;
+#home_page h1 {
+    margin: 230px 0 45px 0;
     font-weight: 300;
     font-size: 45px;
 }
-.hero {
+#home_page {
     width: 100%;
     height: 100%;
 }
@@ -302,8 +303,8 @@ Waypoints
 #demo-canvas {
     position:fixed;
 }
-.nav-wrapper {
+#header {
     position: absolute;
     width: 85%;
-    margin-top: 30px;
+    margin-top: 3%;
 }

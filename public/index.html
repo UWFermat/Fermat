@@ -12,36 +12,119 @@
 		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
 		<link href="css/styles.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+		<link href="css/homepage_modal.css" rel="stylesheet">
 		<link href="css/queries.css" rel="stylesheet">
 	</head>
 	<body>
-		<header>
-			<section id="large-header" class="hero" class="large-header">
-                <canvas id="demo-canvas"></canvas>
-				<div class="texture-overlay"></div>
-				<div class="container">
-					<div class="row nav-wrapper">
-						<div class="col-md-6 col-sm-6 col-xs-6 text-left">
-							<a href="#"><img src="img/logo-white.png" alt="Boxify Logo"></a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6 text-right navicon">
-							<p>MENU</p><a id="trigger-overlay" class="nav_slide_button nav-toggle" href="#"><span></span></a>
-						</div>
+		<section id="home_page">
+            <canvas id="demo-canvas"></canvas>
+			<div class="texture-overlay"></div>
+			<div class="container">
+				<div id="header" class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6 text-left">
+						<h2 style="font-weight:bold">fermat</h2>
 					</div>
-					<div class="row hero-content">
-						<div class="col-md-9">
-							<h1 class="animated fadeInDown">An Online Community for the University of Waterloo. Earn the Grades You Always Wanted.</h1>
-							<button class="btn btn-lg use-btn animated fadeInUp">
-								Learn More
-							</button> 
-							<button class="btn btn-info btn-lg animated fadeInUp">
-								Start Collaborating <i class="fa fa-users"></i>
-							</button>
-						</div>
+					<div class="col-md-6 col-sm-6 col-xs-6 text-right navicon" style="margin-top:2%">
+						<p>MENU</p><a id="trigger-overlay" class="nav_slide_button nav-toggle" href="#"><span></span></a>
 					</div>
 				</div>
-			</section>
-		</header>
+				<div class="row">
+					<div class="col-md-9">
+						<h1 class="animated fadeInDown">Want to get awesome grades? Cool, we're here to help.</h1>
+						<button class="btn btn-lg use-btn animated fadeInUp">
+							Learn More
+						</button> 
+						<button id="start_collab_btn" class="btn btn-info btn-lg animated fadeInUp" data-toggle="modal" data-target="#sign_in_modal">
+							Start Collaborating <i class="fa fa-users"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<div class="modal fade" id="sign_in_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="form">
+
+		    	<ul class="tab-group">
+		    		<li class="tab active">
+		    			<a href="#login">Log In</a>
+		    		</li>
+		        	<li class="tab">
+		        		<a href="#signup">Sign Up</a>
+		        	</li>
+		    	</ul>
+		      
+		    	<div class="tab-content">
+
+		    		<div id="login">   
+		            	<h1>Welcome Back!</h1>
+		          		<form id="login_form" action="/" method="post">
+		          			<div class="form_inputs">
+				            	<div class="field-wrap">
+						            <label>
+						            	Email Address<span class="req">*</span>
+						            </label>
+					            	<input id="login_email" type="text" required/>
+					            </div>
+				          
+					            <div class="field-wrap">
+					            	<label>
+					            		Password<span class="req">*</span>
+					            	</label>
+					            	<input id="login_password" type="password" required/>
+					            </div>
+				          
+						        <p class="forgot"><a href="#">Forgot Password?</a></p>
+						    </div>
+					          
+					        <button class="button button-block"/>Log In</button>
+		            	</form>
+		        	</div>
+
+			        <div id="signup">   
+			        	<h1>Sign Up for Free</h1>
+			        	<form id="register_form" action="/" method="post">
+			        		<div class="form_inputs">
+					            <div class="top-row">
+						            <div class="field-wrap">
+						            	<label>
+						                	First Name<span class="req">*</span>
+						            	</label>
+						                <input id="register_first_name" type="text" required/>
+						            </div>
+					        
+						            <div class="field-wrap">
+						            	<label>
+						                	Last Name<span class="req">*</span>
+						            	</label>
+						                <input id="register_last_name" type="text"required autocomplete="off"/>
+						            </div>
+					            </div>
+
+					            <div class="field-wrap">
+						            <label>
+						            	Email Address<span class="req">*</span>
+						            </label>
+						            <input id="register_email" type="email" required/>
+					            </div>
+					          
+					            <div class="field-wrap">
+					            	<label>
+					            		Set A Password<span class="req">*</span>
+					            	</label>
+					            	<input id="register_password" type="password" required/>
+					            </div>
+					        </div>
+			       
+			            	<button type="submit" class="button button-block"/>Get Started</button>
+		           		</form>
+			        </div>
+		  
+		    	</div>
+			</div>
+		</div>
+
 		<div class="overlay overlay-boxify">
 			<nav>
 				<ul>

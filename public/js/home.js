@@ -2,7 +2,7 @@
 
     var width, height, largeHeader, canvas, ctx, circles, target, run_animation=true, request = 0;
 
-    // Main
+    //====== Start of Particle Animation ====== 
     initHeader();
     addListeners();
 
@@ -11,7 +11,7 @@
         height = window.innerHeight;
         target = {x: 0, y: height};
 
-        largeHeader = document.getElementById('large-header');
+        largeHeader = document.getElementById('home_page');
         largeHeader.style.height = height+'px';
 
         canvas = document.getElementById('demo-canvas');
@@ -85,26 +85,125 @@
         };
     }
 
+    //========= End of Particle Animation ===========
+
+    //========= Start of Sign Up Modal ==============
+
+    $('#start_collab_btn').on('click', function() {
+        stopAnimation();
+    });
+
+    $('#sign_in_modal').on('show.bs.modal', function () {
+        // Focus the first field of the modal 
+        // Use a timeout function, otherwise focus doesn't seem to work (perhaps because modal isn't fully shown yet)
+        if($('.tab.active a').attr('href') == '#login') {
+            setTimeout(function() { 
+                $('#login_email').focus(); 
+            }, 500);
+        } else {
+            setTimeout(function() { 
+                $('#register_first_name').focus(); 
+            }, 500);
+        }
+    });
+
+    $('#sign_in_modal').on('hide.bs.modal', function () {
+        startAnimation();
+     })
+
+    $('.form').find('input, textarea').on('keyup blur focus', function (e) {
+  
+        var $this = $(this),
+        label = $this.prev('label');
+
+        if (e.type === 'keyup') {
+            if ($this.val() === '') {
+                label.removeClass('active highlight');
+            } else {
+                label.addClass('active highlight');
+            }
+        } else if (e.type === 'blur') {
+            if( $this.val() === '' ) {
+                label.removeClass('active highlight'); 
+            } else {
+                label.removeClass('highlight');   
+            }   
+        } else if (e.type === 'focus') {
+          
+            if($this.val() === '') {
+                label.removeClass('highlight'); 
+            } 
+            else if( $this.val() !== '' ) {
+                label.addClass('highlight');
+            }
+        }
+
+    });
+
+    $('.tab a').on('click', function (e) {
+      
+        e.preventDefault();
+      
+        $(this).parent().addClass('active');
+        $(this).parent().siblings().removeClass('active');
+      
+        target = $(this).attr('href');
+        if($(this).attr('href') == '#signup') {
+            // Focus the first field of the sign up form
+            setTimeout(function() { 
+                $('#register_first_name').focus(); 
+            }, 500);
+        } else {
+            // Focus the first field of the login form
+            setTimeout(function() { 
+                $('#login_email').focus(); 
+            }, 500);
+        }
+
+        $('.tab-content > div').not(target).hide();
+      
+        $(target).fadeIn(600);
+      
+    });
+
+    //========= End of Sign Up Modal ================
+
     //When user clicks on nav toggle
     $(".nav-toggle").click(function() {
-        //Stop the animation if modal is being opened
-        if(run_animation) {
-            run_animation=false;
-        } else {
-            //Run the animation if modal is being closed
-            run_animation=true;
-        }
-        animate(run_animation);
-        $(this).toggleClass("active");
-        $(".overlay-boxify").toggleClass("open");
+        toggleAnimation();
+        toggleOverlay();
     });
 
     //When user clicks outside
     $(".overlay").click(function() {
+        startAnimation();
+        toggleOverlay();
+    });
+
+    function toggleAnimation() {
+        //Stop the animation if overlay is being opened
+        if(run_animation) {
+            run_animation = false;
+        } else {
+            //Run the animation if overlay is being closed
+            run_animation = true;
+        }
+        animate(run_animation);
+    }
+
+    function startAnimation() {
+        run_animation = true;
+        animate(run_animation);
+    }
+
+    function stopAnimation() {
+        run_animation = false;
+        animate(run_animation);
+    }
+
+    function toggleOverlay() {
         $(".nav-toggle").toggleClass("active");
         $(".overlay-boxify").toggleClass("open");
-        run_animation=true;
-        animate(run_animation);
-    });
+    }
 
 })();
