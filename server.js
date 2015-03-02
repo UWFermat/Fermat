@@ -5,8 +5,10 @@ var express        = require('./app/node_modules/express');
 var app            = express();
 var bodyParser     = require('./app/node_modules/body-parser');
 var methodOverride = require('./app/node_modules/method-override');
+var cookieParser = require('./app/node_modules/cookie-parser');
 var expressSession = require('./app/node_modules/express-session');
 var mongoose = require('./app/node_modules/mongoose');
+// var oauthServer = require('./app/node_modules/oauth2-server');
 
 // configuration ===========================================
 // config files
@@ -26,12 +28,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// app.oauth = oauthServer({
+// 	model: {},
+// 	grants: ['password'],
+// 	debug: true
+// });
+
 // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 app.use(methodOverride('X-HTTP-Method-Override'));
 // set the static files location /public/img will be /img for users
-app.use(express.static(__dirname + '/public'));
+// app.use(express.static(__dirname + '/public'));
 
-
+app.use(cookieParser());
 // setting up express-session
 app.use(expressSession({secret: 'mySecretKey'}));
 
