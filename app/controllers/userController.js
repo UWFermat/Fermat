@@ -62,14 +62,14 @@ module.exports = {
         console.log("Error: " + err);
       }
       if (!user){
-        res.send({status: "error", message: "User does not exist"});
+        res.send({status: "error", message: "User does not exist"}, 401);
       }
       if (user){
         if (isValidPassword(user, password)){
-          res.send({status: "success", message: "Login successful"});
+          res.send({status: "success", message: "Login successful"}, 200);
         }
         else{
-          res.send({status: "error", message: "Bad password"});
+          res.send({status: "error", message: "Bad password"}, 401);
         }
       }
     });
