@@ -18,26 +18,28 @@
 	</head>
 	<body>
 		<section id="home_page">
-            <canvas id="demo-canvas"></canvas>
-			<div class="texture-overlay"></div>
-			<div class="container">
-				<div id="header" class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6 text-left">
-						<h2 style="font-weight:bold">fermat</h2>
+			<div class="black_filter_40">
+	            <canvas id="demo-canvas"></canvas>
+				<div class="texture-overlay"></div>
+				<div class="container">
+					<div id="header" class="row">
+						<div class="col-md-6 col-sm-6 col-xs-6 text-left">
+							<h2 style="font-weight:bold">fermat</h2>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6 text-right navicon" style="margin-top:2%">
+							<p>MENU</p><a id="trigger-overlay" class="nav_slide_button nav-toggle" href="#"><span></span></a>
+						</div>
 					</div>
-					<div class="col-md-6 col-sm-6 col-xs-6 text-right navicon" style="margin-top:2%">
-						<p>MENU</p><a id="trigger-overlay" class="nav_slide_button nav-toggle" href="#"><span></span></a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-9">
-						<h1 class="animated fadeInDown">Want to get awesome grades? Cool, we're here to help.</h1>
-						<button class="btn btn-lg use-btn animated fadeInUp">
-							Learn More
-						</button> 
-						<button id="start_collab_btn" class="btn btn-info btn-lg animated fadeInUp" data-toggle="modal" data-target="#sign_in_modal">
-							Start Collaborating <i class="fa fa-users"></i>
-						</button>
+					<div class="row">
+						<div class="col-md-9">
+							<h1 class="animated fadeInDown">Want to get awesome grades? Cool, we're here to help.</h1>
+							<button class="btn btn-lg use-btn animated fadeInUp">
+								Learn More
+							</button> 
+							<button id="start_collab_btn" class="btn btn-info btn-lg animated fadeInUp" data-toggle="modal" data-target="#sign_in_modal">
+								Start Collaborating <i class="fa fa-users"></i>
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -65,14 +67,14 @@
 						            <label>
 						            	Email Address<span class="req">*</span>
 						            </label>
-					            	<input id="login_email" type="text" required/>
+					            	<input id="login_email" type="text" autocomplete="off" required/>
 					            </div>
 				          
 					            <div class="field-wrap">
 					            	<label>
 					            		Password<span class="req">*</span>
 					            	</label>
-					            	<input id="login_password" type="password" required/>
+					            	<input id="login_password" type="password" autocomplete="off" required/>
 					            </div>
 				          
 						        <p class="forgot"><a href="#">Forgot Password?</a></p>
@@ -91,14 +93,14 @@
 						            	<label>
 						                	First Name<span class="req">*</span>
 						            	</label>
-						                <input id="register_first_name" type="text" required/>
+						                <input id="register_first_name" type="text" autocomplete="off" required/>
 						            </div>
 					        
 						            <div class="field-wrap">
 						            	<label>
 						                	Last Name<span class="req">*</span>
 						            	</label>
-						                <input id="register_last_name" type="text"required autocomplete="off"/>
+						                <input id="register_last_name" type="text" autocomplete="off" required/>
 						            </div>
 					            </div>
 
@@ -106,14 +108,14 @@
 						            <label>
 						            	Email Address<span class="req">*</span>
 						            </label>
-						            <input id="register_email" type="email" required/>
+						            <input id="register_email" type="email" autocomplete="off" required/>
 					            </div>
 					          
 					            <div class="field-wrap">
 					            	<label>
 					            		Set A Password<span class="req">*</span>
 					            	</label>
-					            	<input id="register_password" type="password" required/>
+					            	<input id="register_password" type="password" autocomplete="off" required/>
 					            </div>
 					        </div>
 			       

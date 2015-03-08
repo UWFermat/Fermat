@@ -160,7 +160,7 @@ Hero
 ========================================================================== */
 #home_page {
     position: relative;
-    background: rgb(40, 70, 102) url('../img/hero-01.jpg') no-repeat center center;
+    background: rgb(40, 70, 102) url('../img/waterloo_e7.jpg') no-repeat center center;
     background-size: cover;
     color: #fff;
 }
@@ -307,4 +307,16 @@ Waypoints
     position: absolute;
     width: 85%;
     margin-top: 3%;
+}
+.black_filter_40 {
+    background-color: rgba(38,38,38,0.4);
+    height:100%;
+}
+#start_collab_btn {
+    background-color: #73d0da;
+    border-color: #30C9DA;
+}
+#start_collab_btn:hover {
+    background-color: #39b3d7;
+    border-color: #269abc;
 }
