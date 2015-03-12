@@ -1,4 +1,4 @@
-(function() {
+$(document).ready(function() {
 
     var width, height, largeHeader, canvas, ctx, circles, target, run_animation=true, request = 0;
 
@@ -77,7 +77,7 @@
                 init();
             }
             _this.pos.y -= _this.velocity;
-            _this.alpha -= 0.0009;
+            _this.alpha -= 0.0008;
             ctx.beginPath();
             ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 2 * Math.PI, false);
             ctx.fillStyle = 'rgba(255,255,255,'+ _this.alpha+')';
@@ -206,4 +206,12 @@
         $(".overlay-boxify").toggleClass("open");
     }
 
-})();
+    setTimeout(function() {
+        $("#learn_more_btn").addClass("fadeInUp");
+        $("#start_collab_btn").addClass("fadeInUp");
+        $("#learn_more_btn").show();
+        $("#start_collab_btn").show();
+    }, 400);
+
+
+});

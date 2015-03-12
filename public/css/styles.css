@@ -77,20 +77,22 @@ a:hover, a:focus {
 /* ==========================================================================
 Buttons
 ========================================================================== */
-.use-btn {
-    display: inline-block;
+#learn_more_btn {
+    display: none;
     margin-right:10px;
     border-radius: 3px;
     background-color: #fff;
-    color: #4b98a9;
+    color: #333C50;
     font-size: 16px;
 }
-.use-btn:hover, .use-btn:focus {
-    background-color: #73d0da;
-    color: #fff;
-    text-decoration: none;
+#start_collab_btn {
+    display: none;
+    background-color: #333C50;
 }
-
+#start_collab_btn:hover {
+    background-color: #2A2F3C;
+    color: #fff;
+}
 /* ==========================================================================
 Navigation
 ========================================================================== */
@@ -309,14 +311,6 @@ Waypoints
     margin-top: 3%;
 }
 .black_filter_40 {
-    background-color: rgba(38,38,38,0.4);
+    background-color: rgba(38,38,38,0.6);
     height:100%;
-}
-#start_collab_btn {
-    background-color: #73d0da;
-    border-color: #30C9DA;
-}
-#start_collab_btn:hover {
-    background-color: #39b3d7;
-    border-color: #269abc;
 }
