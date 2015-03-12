@@ -1,4 +1,4 @@
-(function() {
+$(document).ready(function() {
 
     var width, height, largeHeader, canvas, ctx, circles, target, run_animation=true, request = 0;
 
@@ -21,7 +21,7 @@
 
         // create particles
         circles = [];
-        for(var x = 0; x < Math.round(width*0.2); x++) {
+        for(var x = 0; x < Math.round(width*0.15); x++) {
             var c = new Circle();
             circles.push(c);
         }
@@ -67,7 +67,7 @@
         function init() {
             _this.pos.x = Math.random()*width;
             _this.pos.y = height+Math.random()*100;
-            _this.alpha = 0.1+Math.random()*0.3;
+            _this.alpha = 0.1+Math.random()*0.5;
             _this.scale = 0.1+Math.random()*0.3;
             _this.velocity = Math.random();
         }
@@ -206,4 +206,12 @@
         $(".overlay-boxify").toggleClass("open");
     }
 
-})();
+    setTimeout(function() {
+        $("#learn_more_btn").addClass("fadeInUp");
+        $("#start_collab_btn").addClass("fadeInUp");
+        $("#learn_more_btn").show();
+        $("#start_collab_btn").show();
+    }, 400);
+
+
+});
